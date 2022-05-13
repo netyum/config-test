@@ -228,7 +228,7 @@ class ApolloDriver extends AbstractDriver
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
-    protected function updateConfigChange($config, $prevConfig)
+    private function updateConfigChange($config, $prevConfig)
     {
         $this->updateDatabaseConfigChange($config, $prevConfig);
         $this->updateRedisConfigChange($config, $prevConfig);
@@ -241,7 +241,7 @@ class ApolloDriver extends AbstractDriver
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
-    protected function updateDatabaseConfigChange($config, $prevConfig)
+    private function updateDatabaseConfigChange($config, $prevConfig)
     {
         if (count($prevConfig) == 0) {
             return;
@@ -276,7 +276,7 @@ class ApolloDriver extends AbstractDriver
      * @throws \Psr\Container\ContainerExceptionInterface
      * @throws \Psr\Container\NotFoundExceptionInterface
      */
-    protected function updateRedisConfigChange($config, $prevConfig)
+    private function updateRedisConfigChange($config, $prevConfig)
     {
         if (count($prevConfig) == 0) {
             return;

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c2275273a236f6e6a85c61bc02006b9",
+    "content-hash": "2e7a55b01a1aa18463f8420528da850a",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1041,6 +1041,69 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2021-11-23T09:01:56+00:00"
+        },
+        {
+            "name": "hyperf/config-nacos",
+            "version": "v2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/config-nacos.git",
+                "reference": "56c1c7bba50d600ce1914c0c30110babe9d157be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/config-nacos/zipball/56c1c7bba50d600ce1914c0c30110babe9d157be",
+                "reference": "56c1c7bba50d600ce1914c0c30110babe9d157be",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/config-center": "~2.2.0",
+                "hyperf/contract": "~2.2.0",
+                "hyperf/guzzle": "~2.2.0",
+                "hyperf/nacos": "~2.2.0",
+                "hyperf/utils": "~2.2.0"
+            },
+            "suggest": {
+                "ext-json": "*",
+                "ext-simplexml": "*",
+                "ext-yaml": "*",
+                "hyperf/event": "Required to use listeners. (~2.2.0)",
+                "hyperf/framework": "Required to use listeners. (~2.2.0)",
+                "hyperf/process": "Required to use processes. (~2.2.0)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\ConfigNacos\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\ConfigNacos\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A nacos adapter for config center component.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "hyperf",
+                "nacos",
+                "php",
+                "swoole"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "time": "2021-08-10T04:56:07+00:00"
         },
         {
             "name": "hyperf/constants",
@@ -2097,6 +2160,56 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2021-10-28T10:13:44+00:00"
+        },
+        {
+            "name": "hyperf/nacos",
+            "version": "v2.2.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/nacos.git",
+                "reference": "fc2253c18b6e0ce66b0e7da21b8e6fc5098913f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/nacos/zipball/fc2253c18b6e0ce66b0e7da21b8e6fc5098913f3",
+                "reference": "fc2253c18b6e0ce66b0e7da21b8e6fc5098913f3",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.5|^7.0",
+                "hyperf/contract": "~2.2.0",
+                "hyperf/utils": "~2.2.0",
+                "php": ">=7.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Nacos\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Nacos\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Nacos SDK",
+            "keywords": [
+                "hyperf",
+                "nacos",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf/nacos/issues",
+                "source": "https://github.com/hyperf/nacos/tree/v2.2.17"
+            },
+            "time": "2021-11-22T01:40:18+00:00"
         },
         {
             "name": "hyperf/pool",
@@ -7770,5 +7883,5 @@
         "php": ">=7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.0.0"
 }

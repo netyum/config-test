@@ -24,9 +24,54 @@ redis.default.db = 0
 redis.default.pool.min_connections = 1
 ```
 
+### nancos配置
+database data_id
+```json
+{
+    "default": {
+        "driver": "mysql",
+        "host": "127.0.0.1",
+        "port": 3306,
+        "database": "test",
+        "username": "roo3t",
+        "password": "root",
+        "charset": "utf8mb4",
+        "collation": "utf8mb4_unicode_ci",
+        "prefix": "",
+        "pool": {
+            "min_connections": 1,
+            "max_connections": 10,
+            "connect_timeout": 10.0,
+            "wait_timeout": 3.0,
+            "heartbeat": -1,
+            "max_idle_time": 60
+        }
+    }
+}
+```
+redis data_id
+```json
+{
+    "default": {
+        "host": "127.0.0.1",
+        "auth": "",
+        "port": 6379,
+        "db": 0,
+        "pool": {
+            "min_connections": 1,
+            "max_connections": 10,
+            "connect_timeout": 10.0,
+            "wait_timeout": 3.0,
+            "heartbeat": -1,
+            "max_idle_time": 60
+        }
+    }
+}
+```
+
 ### 修改
 
-1. `App\Config\ApolloDriver`, 其他驱动，暂时没有环境
+1. `App\Config\ApolloDriver`, `App\Config\NacosDriver` 其他驱动，暂时没有环境
 
 增加`updateConfigChange` 更新db和redis变化
 
@@ -38,6 +83,7 @@ redis.default.pool.min_connections = 1
 
 ```
 Hyperf\ConfigApollo\ApolloDriver::class => App\Config\ApolloDriver::class,
+Hyperf\ConfigNacos\NacosDriver::class => App\Config\NacosDriver::class,
 Hyperf\DbConnection\Pool\PoolFactory::class => App\Pool\DbPoolFactory::class,
 Hyperf\Redis\Pool\PoolFactory::class => App\Pool\RedisPoolFactory::class,
 ```
@@ -62,7 +108,7 @@ php bin/hyperf.php gen:model "表名" --enable-event-dispatcher
 
 ### 注意
 
-`config_center.php` 相应驱动要使用严格模式，进行类型转换
+`config_center.php` apollo 相应驱动要使用严格模式，进行类型转换
 ```
 'strict_mode' => true,
 ```
