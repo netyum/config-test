@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9703042eddae3a004f5650f780035a02",
+    "content-hash": "972bd7620ff4268d282f3327693cf54c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1155,6 +1155,65 @@
                 "source": "https://github.com/hyperf/hyperf"
             },
             "time": "2021-08-10T04:56:07+00:00"
+        },
+        {
+            "name": "hyperf/config-zookeeper",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/config-zookeeper.git",
+                "reference": "938cb8819b23b95d5b58817647f79c30f07e2bc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/config-zookeeper/zipball/938cb8819b23b95d5b58817647f79c30f07e2bc6",
+                "reference": "938cb8819b23b95d5b58817647f79c30f07e2bc6",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/contract": "~2.2.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0|^2.0"
+            },
+            "suggest": {
+                "ext-swoole-zookeeper": "coroutine client for zookeeper",
+                "hyperf/process": "Use hyperf process to run ConfigFetcherProcess."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\ConfigZookeeper\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\ConfigZookeeper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An zookeeper adapter for Hyperf config component.",
+            "homepage": "https://hyperf.io",
+            "keywords": [
+                "config",
+                "configuration",
+                "hyperf",
+                "php",
+                "swoole",
+                "zookeeper"
+            ],
+            "support": {
+                "docs": "https://hyperf.wiki",
+                "issues": "https://github.com/hyperf/hyperf/issues",
+                "pull-request": "https://github.com/hyperf/hyperf/pulls",
+                "source": "https://github.com/hyperf/hyperf"
+            },
+            "time": "2021-07-18T06:50:14+00:00"
         },
         {
             "name": "hyperf/constants",

@@ -71,7 +71,7 @@ redis data_id
 
 ### 修改
 
-1. `App\Config\ApolloDriver`, `App\Config\NacosDriver` 其他驱动，暂时没有环境
+1. `App\Config\ApolloDriver`, `App\Config\NacosDriver` `App\Config\EtcdDriver` `App\Config\ZookeeperDriver`
 
 增加`updateConfigChange` 更新db和redis变化
 
