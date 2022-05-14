@@ -12,19 +12,27 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Hyperf\DbConnection\Db;
+use Hyperf\HttpServer\Annotation\Controller;
+use Hyperf\HttpServer\Annotation\GetMapping;
 
+/**
+ * @Controller
+ */
 class IndexController extends AbstractController
 {
+    /**
+     * @GetMapping(path="/")
+     */
     public function index()
     {
         $data = Db::table('onethink_action')->get()->toArray();
-        var_dump($data);
-//        $user = $this->request->input('user', 'Hyperf');
-//        $method = $this->request->getMethod();
-//
-//        return [
-//            'method' => $method,
-//            'message' => "Hello {$user}.",
-//        ];
+    }
+
+    /**
+     * @GetMapping(path="/test")
+     */
+    public function test()
+    {
+        $data = Db::connection('test')->table('onethink_action')->get()->toArray();
     }
 }

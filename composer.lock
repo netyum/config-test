@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e7a55b01a1aa18463f8420528da850a",
+    "content-hash": "9703042eddae3a004f5650f780035a02",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1043,6 +1043,57 @@
             "time": "2021-11-23T09:01:56+00:00"
         },
         {
+            "name": "hyperf/config-etcd",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/config-etcd.git",
+                "reference": "4174ddd78b62db1474ad79f52d15a34e108d753a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/config-etcd/zipball/4174ddd78b62db1474ad79f52d15a34e108d753a",
+                "reference": "4174ddd78b62db1474ad79f52d15a34e108d753a",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/config-center": "~2.2.0",
+                "hyperf/etcd": "~2.2.0",
+                "hyperf/utils": "~2.2.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\ConfigEtcd\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\ConfigEtcd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An etcd adapter for config center component.",
+            "keywords": [
+                "config",
+                "etcd",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf/config-etcd/issues",
+                "source": "https://github.com/hyperf/config-etcd/tree/v2.2.0"
+            },
+            "time": "2021-07-19T04:15:16+00:00"
+        },
+        {
             "name": "hyperf/config-nacos",
             "version": "v2.2.4",
             "source": {
@@ -1541,6 +1592,55 @@
                 "source": "https://github.com/hyperf/engine/tree/v1.2.1"
             },
             "time": "2022-01-22T14:24:31+00:00"
+        },
+        {
+            "name": "hyperf/etcd",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hyperf/etcd.git",
+                "reference": "bffc97755aa6b91e4b86d9efbeadb9954abb00b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hyperf/etcd/zipball/bffc97755aa6b91e4b86d9efbeadb9954abb00b6",
+                "reference": "bffc97755aa6b91e4b86d9efbeadb9954abb00b6",
+                "shasum": ""
+            },
+            "require": {
+                "hyperf/guzzle": "~2.2.0",
+                "hyperf/utils": "~2.2.0",
+                "php": ">=7.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                },
+                "hyperf": {
+                    "config": "Hyperf\\Etcd\\ConfigProvider"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hyperf\\Etcd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Etcd Client for Hyperf.",
+            "keywords": [
+                "etcd",
+                "hyperf",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/hyperf/etcd/issues",
+                "source": "https://github.com/hyperf/etcd/tree/v2.2.0"
+            },
+            "time": "2021-07-19T02:36:38+00:00"
         },
         {
             "name": "hyperf/event",
@@ -7225,16 +7325,16 @@
         },
         {
             "name": "swoole/ide-helper",
-            "version": "4.8.9",
+            "version": "4.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swoole/ide-helper.git",
-                "reference": "8f82ba3b6af04a5bccb97c1654af992d1ee8b0fe"
+                "reference": "566dfdeb75fe89c836d59c8e06ec9615c1318c08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/8f82ba3b6af04a5bccb97c1654af992d1ee8b0fe",
-                "reference": "8f82ba3b6af04a5bccb97c1654af992d1ee8b0fe",
+                "url": "https://api.github.com/repos/swoole/ide-helper/zipball/566dfdeb75fe89c836d59c8e06ec9615c1318c08",
+                "reference": "566dfdeb75fe89c836d59c8e06ec9615c1318c08",
                 "shasum": ""
             },
             "type": "library",
@@ -7251,7 +7351,7 @@
             "description": "IDE help files for Swoole.",
             "support": {
                 "issues": "https://github.com/swoole/ide-helper/issues",
-                "source": "https://github.com/swoole/ide-helper/tree/4.8.9"
+                "source": "https://github.com/swoole/ide-helper/tree/4.8.10"
             },
             "funding": [
                 {
@@ -7263,7 +7363,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-04-18T20:38:04+00:00"
+            "time": "2022-05-13T22:24:54+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -7883,5 +7983,5 @@
         "php": ">=7.3"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

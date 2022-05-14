@@ -12,6 +12,7 @@ declare(strict_types=1);
 return [
     Hyperf\ConfigApollo\ApolloDriver::class => App\Config\ApolloDriver::class,
     Hyperf\ConfigNacos\NacosDriver::class => App\Config\NacosDriver::class,
+    Hyperf\ConfigEtcd\EtcdDriver::class => App\Config\EtcdDriver::class,
     Hyperf\DbConnection\Pool\PoolFactory::class => App\Pool\DbPoolFactory::class,
     Hyperf\Redis\Pool\PoolFactory::class => App\Pool\RedisPoolFactory::class,
 ];

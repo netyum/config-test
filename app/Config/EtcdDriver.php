@@ -12,44 +12,59 @@ declare(strict_types=1);
 namespace App\Config;
 
 use Hyperf\ConfigCenter\AbstractDriver;
-use Hyperf\ConfigNacos\Client;
-use Hyperf\ConfigNacos\ClientInterface;
-use Hyperf\ConfigNacos\Constants;
+use Hyperf\ConfigEtcd\ClientInterface;
+use Hyperf\ConfigEtcd\KV;
 use Hyperf\Utils\ApplicationContext;
-use Hyperf\Utils\Arr;
+use Hyperf\Utils\Packer\JsonPacker;
 use Psr\Container\ContainerInterface;
 
-class NacosDriver extends AbstractDriver
+class EtcdDriver extends AbstractDriver
 {
     /**
-     * @var Client
+     * @var JsonPacker
      */
-    protected $client;
+    protected $packer;
 
-    protected $driverName = 'nacos';
+    /**
+     * @var array
+     */
+    protected $mapping;
+
+    protected $driverName = 'etcd';
 
     public function __construct(ContainerInterface $container)
     {
         parent::__construct($container);
         $this->client = $container->get(ClientInterface::class);
+        $this->mapping = $this->config->get('config_center.drivers.etcd.mapping', []);
+        $this->packer = $container->get($this->config->get('config_center.drivers.etcd.packer', JsonPacker::class));
     }
 
     protected function updateConfig(array $config)
     {
-        $root = $this->config->get('config_center.drivers.nacos.default_key');
-        foreach ($config ?? [] as $key => $conf) {
-            if (is_int($key)) {
-                $key = $root;
+        $configurations = $this->format($config);
+        foreach ($configurations as $kv) {
+            $key = $this->mapping[$kv->key] ?? null;
+            if (is_string($key)) {
+                $config = $this->packer->unpack($kv->value);
+                $this->config->set($key, $this->packer->unpack($kv->value));
+                $this->logger->debug(sprintf('Config [%s] is updated', $key));
+                $this->updateConfigChange($key, $config);
             }
-
-            if (is_array($conf) && $this->config->get('config_center.drivers.nacos.merge_mode') === Constants::CONFIG_MERGE_APPEND) {
-                $conf = Arr::merge($this->config->get($key, []), $conf);
-            }
-
-            $this->config->set($key, $conf);
-            // 更新配置变化
-            $this->updateConfigChange($key, $conf);
         }
+    }
+
+    /**
+     * Format kv configurations.
+     */
+    protected function format(array $config): array
+    {
+        $result = [];
+        foreach ($config as $value) {
+            $result[] = new KV($value);
+        }
+
+        return $result;
     }
 
     /**

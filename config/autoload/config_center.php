@@ -50,6 +50,12 @@ return [
                     'group' => 'DEFAULT_GROUP',
                     'type' => 'json',
                 ],
+                'databases.test' => [
+                    'tenant' => 'public', // corresponding with service.namespaceId
+                    'data_id' => 'databases.test',
+                    'group' => 'DEFAULT_GROUP',
+                    'type' => 'json',
+                ],
                 'redis' => [
                     'tenant' => 'public', // corresponding with service.namespaceId
                     'data_id' => 'redis',
@@ -66,6 +72,30 @@ return [
                 'password' => env('NACOS_PASSWORD', null),
                 'guzzle' => [
                     'config' => null,
+                ],
+            ],
+        ],
+        'etcd' => [
+            'driver' => Hyperf\ConfigEtcd\EtcdDriver::class,
+            'packer' => Hyperf\Utils\Packer\JsonPacker::class,
+            // 需要同步的数据前缀
+            'namespaces' => [
+                '/application',
+            ],
+            // `Etcd` 与 `Config` 的映射关系。映射中不存在的 `key`，则不会被同步到 `Config` 中
+            'mapping' => [
+                // etcd key => config key
+                '/application/databases' => 'databases',
+                '/application/databases.test' => 'databases.test',
+            ],
+            // 配置更新间隔（秒）
+            'interval' => 5,
+            'client' => [
+                # Etcd Client
+                'uri' => 'http://127.0.0.1:2379',
+                'version' => 'v3beta',
+                'options' => [
+                    'timeout' => 10,
                 ],
             ],
         ],

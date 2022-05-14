@@ -17,6 +17,7 @@
         "hyperf/command": "~2.2.0",
         "hyperf/config": "~2.2.0",
         "hyperf/config-apollo": "~2.2.0",
+        "hyperf/config-etcd": "^2.2",
         "hyperf/config-nacos": "^2.2",
         "hyperf/constants": "~2.2.0",
         "hyperf/database": "~2.2.0",
