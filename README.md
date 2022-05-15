@@ -84,9 +84,30 @@ redis data_id
 ```
 Hyperf\ConfigApollo\ApolloDriver::class => App\Config\ApolloDriver::class,
 Hyperf\ConfigNacos\NacosDriver::class => App\Config\NacosDriver::class,
+Hyperf\ConfigEtcd\EtcdDriver::class => App\Config\EtcdDriver::class,
+Hyperf\ConfigZookeeper\ZookeeperDriver::class => App\Config\ZookeeperDriver::class,
 Hyperf\DbConnection\Pool\PoolFactory::class => App\Pool\DbPoolFactory::class,
-Hyperf\Redis\Pool\PoolFactory::class => App\Pool\RedisPoolFactory::class,
 ```
+
+#### 实际测试
+
+不能通过依赖注入大法，替换Redis的 PoolFactory类，因为上层，限定必须是  Hyperf\Redis\Pool\PoolFactory的实例，
+
+所以Redis的PoolFactory采用class_map 替换大法,修改 config/autoload/annotations.php类，增加class_map
+```
+    'scan' => [
+        'paths' => [
+            BASE_PATH . '/app',
+        ],
+        'ignore_annotations' => [
+            'mixin',
+        ],
+        'class_map' => [
+            Hyperf\Redis\Pool\PoolFactory::class => __DIR__ . '/../class_map/Redis/Pool/PoolFactory.php',
+        ],
+    ],
+```
+添加对应的文件，做替换，保持相同命名空间
 
 ### 使用
 

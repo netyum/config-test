@@ -17,5 +17,8 @@ return [
         'ignore_annotations' => [
             'mixin',
         ],
+        'class_map' => [
+            Hyperf\Redis\Pool\PoolFactory::class => __DIR__ . '/../class_map/Redis/Pool/PoolFactory.php',
+        ],
     ],
 ];

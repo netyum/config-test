@@ -15,5 +15,4 @@ return [
     Hyperf\ConfigEtcd\EtcdDriver::class => App\Config\EtcdDriver::class,
     Hyperf\ConfigZookeeper\ZookeeperDriver::class => App\Config\ZookeeperDriver::class,
     Hyperf\DbConnection\Pool\PoolFactory::class => App\Pool\DbPoolFactory::class,
-    Hyperf\Redis\Pool\PoolFactory::class => App\Pool\RedisPoolFactory::class,
 ];
