@@ -70,8 +70,11 @@ class EtcdDriver extends AbstractDriver
     /**
      * 更新配置变化.
      */
-    private function updateConfigChange(string $key, array $config): void
+    private function updateConfigChange(string $key, ?array $config): void
     {
+        if (is_null($config)) {
+            return;
+        }
         if ($key == 'databases') {
             $this->updateDatabaseConfigChange($config);
         } elseif ($key == 'redis') {
